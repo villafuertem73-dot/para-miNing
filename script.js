@@ -67,43 +67,24 @@ const songs = [
 
 let currentSongIndex = -1;
 
-function playSong(index) {
+function playSong(index, element) {
   const player = document.getElementById('audio-player');
   const allCards = document.querySelectorAll('.song-card');
-  const allBtns = document.querySelectorAll('.play-btn');
 
-  // Si hace clic en la canción que ya está sonando
+  allCards.forEach(card => card.classList.remove('active'));
+
   if (currentSongIndex === index) {
     if (player.paused) {
       player.play();
-      document.getElementById(song-${index}).classList.add('active');
-      document.getElementById(btn-${index}).innerText = "❚❚";
+      element.classList.add('active');
     } else {
       player.pause();
-      document.getElementById(song-${index}).classList.remove('active');
-      document.getElementById(btn-${index}).innerText = "▶️";
     }
     return;
   }
 
-  // Limpiar estilos anteriores
-  allCards.forEach(card => card.classList.remove('active'));
-  allBtns.forEach(btn => btn.innerText = "▶️");
-
-  // Asignar nueva canción
   currentSongIndex = index;
   player.src = songs[index].url;
-  player.load();
-
-  // Intentar reproducir
-  const playPromise = player.play();
-  if (playPromise !== undefined) {
-    playPromise.then(() => {
-      document.getElementById(song-${index}).classList.add('active');
-      document.getElementById(btn-${index}).innerText = "❚❚";
-    }).catch(error => {
-      console.log("Error al reproducir audio:", error);
-      alert("Haz clic directamente en el reproductor gris de arriba si el navegador bloquea el reproductor automático.");
-    });
-  }
+  player.play();
+  element.classList.add('active');
 }
