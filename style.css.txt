@@ -1,0 +1,216 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.screen {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+.card {
+  background: #1e1e1e;
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid #ffe60033;
+  box-shadow: 0 8px 24px rgba(255, 230, 0, 0.1);
+}
+
+.flower-icon {
+  font-size: 40px;
+}
+
+h1 {
+  color: #ffeb3b;
+  font-size: 26px;
+  letter-spacing: 2px;
+}
+
+h2 {
+  color: #fff;
+  font-size: 22px;
+}
+
+.subtitle {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.small-tag {
+  color: #ffeb3b;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.message {
+  color: #ddd;
+  font-style: italic;
+}
+
+.code-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #333;
+  border-radius: 50%;
+}
+
+.dot.active {
+  background: #ffeb3b;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+button {
+  background: #2a2a2a;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:active {
+  background: #ffeb3b;
+  color: #000;
+}
+
+.hint {
+  color: #ffeb3b;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.gift-box {
+  font-size: 100px;
+  cursor: pointer;
+  animation: bounce 1.5s infinite;
+  margin-top: 20px;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.section {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  border: 1px solid #ffeb3b44;
+}
+
+.bouquet {
+  font-size: 35px;
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.revealed-text {
+  color: #ffeb3b;
+  font-size: 14px;
+  min-height: 20px;
+}
+
+.letter-body {
+  color: #ddd;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* ESTILOS DE LA REPRODUCTORA */
+.playlist-section {
+  text-align: left;
+}
+
+.playlist-sub {
+  color: #aaa;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.playlist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.song-card {
+  display: flex;
+  align-items: center;
+  background: #2a2a2a;
+  padding: 10px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.song-card:hover {
+  background: #333;
+}
+
+.song-card.active {
+  border-color: #ffeb3b;
+  background: #2f2b10;
+}
+
+.music-icon {
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+.song-info {
+  flex-grow: 1;
+}
+
+.song-title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 14px;
+  color: #fff;
+}
+
+.song-artist {
+  margin: 2px 0 0 0;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.play-btn {
+  background: transparent;
+  border: none;
+  color: #ffeb3b;
+  font-size: 16px;
+  padding: 5px;
+}

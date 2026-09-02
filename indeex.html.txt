@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For You, Ning 💛</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- PANTALLA 1: CÓDIGO DE SEGURIDAD -->
+  <div id="pin-screen" class="screen">
+    <div class="card">
+      <div class="flower-icon">🌻</div>
+      <h2>For You, Ning</h2>
+      <p class="subtitle">Enter the secret code</p>
+      
+      <div class="code-dots">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+
+      <div class="keypad">
+        <button onclick="pressKey('1')">1</button>
+        <button onclick="pressKey('2')">2</button>
+        <button onclick="pressKey('3')">3</button>
+        <button onclick="pressKey('4')">4</button>
+        <button onclick="pressKey('5')">5</button>
+        <button onclick="pressKey('6')">6</button>
+        <button onclick="pressKey('7')">7</button>
+        <button onclick="pressKey('8')">8</button>
+        <button onclick="pressKey('9')">9</button>
+        <button onclick="clearKey()">✕</button>
+        <button onclick="pressKey('0')">0</button>
+        <button onclick="submitCode()">↵</button>
+      </div>
+      <p class="hint">Hint: 111111 💛</p>
+    </div>
+  </div>
+
+  <!-- PANTALLA 2: CAJA DE REGALO -->
+  <div id="gift-screen" class="screen hidden">
+    <h2>Tap the gift box to open it 🎁</h2>
+    <div class="gift-box" onclick="openGift()">
+      🎁
+    </div>
+  </div>
+
+  <!-- PANTALLA 3: PÁGINA PRINCIPAL -->
+  <div id="main-screen" class="screen hidden">
+    <div class="header">
+      <p class="small-tag">✨ Your Special Day ✨</p>
+      <h1>HAPPY BIRTHDAY NING</h1>
+      <p class="message">"Wishing you happiness, good health, and all your dreams come true." 💛</p>
+    </div>
+
+    <!-- RAMILLETE DIGITAL -->
+    <div class="section">
+      <h3>A Digital Bouquet for You 🌻</h3>
+      <p class="subtitle">Touch each flower to reveal its message</p>
+      <div class="bouquet">
+        <span onclick="showMessage('¡Eres una persona increíble y llena de luz!')">🌻</span>
+        <span onclick="showMessage('Gracias por estar siempre presente.')">🌼</span>
+        <span onclick="showMessage('Espero que hoy sonrías mucho.')">💛</span>
+        <span onclick="showMessage('Te deseo lo mejor en este nuevo año.')">✨</span>
+      </div>
+      <p id="flower-message" class="revealed-text"></p>
+    </div>
+
+    <!-- CARTA PERSONALIZADA -->
+    <div class="section letter">
+      <h3>A Letter For You ✉️</h3>
+      <p class="letter-body">
+        Querida Ning,<br><br>
+        En este día tan especial quiero desearte un feliz cumpleaños. Gracias por traer tanta alegría y momentos bonitos a mi vida.<br><br>
+        ¡Espero que te guste este pequeño detalle! 💛
+      </p>
+    </div>
+
+    <!-- REPRODUCTOR DE MÚSICA -->
+    <div class="section playlist-section">
+      <h3>Special Playlist 🎵</h3>
+      <p class="playlist-sub">Songs that remind me of you</p>
+
+      <audio id="audio-player"></audio>
+
+      <div class="playlist">
+        <div class="song-card" onclick="playSong(0, this)">
+          <span class="music-icon">🎵</span>
+          <div class="song-info">
+            <p class="song-title">Opera House</p>
+            <p class="song-artist">Cigarettes After Sex</p>
+          </div>
+          <button class="play-btn">▶️</button>
+        </div>
+
+        <div class="song-card" onclick="playSong(1, this)">
+          <span class="music-icon">🎵</span>
+          <div class="song-info">
+            <p class="song-title">Cherry Waves</p>
+            <p class="song-artist">Deftones</p>
+          </div>
+          <button class="play-btn">▶️</button>
+        </div>
+
+        <div class="song-card" onclick="playSong(2, this)">
+          <span class="music-icon">🎵</span>
+          <div class="song-info">
+            <p class="song-title">Ultraviolence</p>
+            <p class="song-artist">Lana Del Rey</p>
+          </div>
+          <button class="play-btn">▶️</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
