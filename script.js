@@ -46,6 +46,64 @@ function showMessage(msg) {
   document.getElementById('flower-message').innerText = msg;
 }
 
+// REPRODUCTOR DE MÚSICA
+var songs = [
+  {
+    title: "Opera House",
+    artist: "Cigarettes After Sex",
+    url: "opera-house.mp3" 
+  },
+  {
+    title: "Cherry Waves",
+    artist: "Deftones",
+    url: "cherry-waves.mp3"
+  },
+  {
+    title: "Ultraviolence",
+    artist: "Lana Del Rey",
+    url: "ultraviolence.mp3"
+  }
+];
+
+var currentSongIndex = -1;
+
+function playSong(index) {
+  var player = document.getElementById('audio-player');
+  var allCards = document.querySelectorAll('.song-card');
+  var allBtns = document.querySelectorAll('.play-btn');
+
+  // Si hace clic en la misma canción
+  if (currentSongIndex === index) {
+    if (player.paused) {
+      player.play();
+      document.getElementById('song-' + index).classList.add('active');
+      document.getElementById('btn-' + index).innerText = "❚❚";
+    } else {
+      player.pause();
+      document.getElementById('song-' + index).classList.remove('active');
+      document.getElementById('btn-' + index).innerText = "▶️";
+    }
+    return;
+  }
+
+  // Limpiar estados anteriores
+  for (var k = 0; k < allCards.length; k++) {
+    allCards[k].classList.remove('active');
+  }
+  for (var m = 0; m < allBtns.length; m++) {
+    allBtns[m].innerText = "▶️";
+  }
+
+  // Cargar nueva canción
+  currentSongIndex = index;
+  player.src = songs[index].url;
+  player.load();
+  player.play();
+
+  document.getElementById('song-' + index).classList.add('active');
+  document.getElementById('btn-' + index).innerText = "❚❚";
+}
+
 // RAZONES DEL FRASCO INTERACTIVO
 var reasons = [
   "Tu sonrisa siempre ilumina cualquier día difícil. 💛",
