@@ -8,6 +8,7 @@
 </head>
 <body>
 
+  <!-- PANTALLA 1: CÓDIGO DE SEGURIDAD -->
   <div id="pin-screen" class="screen">
     <div class="card">
       <div class="flower-icon">🌻</div>
@@ -37,6 +38,7 @@
     </div>
   </div>
 
+  <!-- PANTALLA 2: CAJA DE REGALO -->
   <div id="gift-screen" class="screen hidden">
     <h2>Tap the gift box to open it 🎁</h2>
     <div class="gift-box" onclick="openGift()">
@@ -44,6 +46,7 @@
     </div>
   </div>
 
+  <!-- PANTALLA 3: PÁGINA PRINCIPAL -->
   <div id="main-screen" class="screen hidden">
     <div class="header">
       <p class="small-tag">✨ Your Special Day ✨</p>
@@ -51,6 +54,7 @@
       <p class="message">"Wishing you happiness, good health, and all your dreams come true." 💛</p>
     </div>
 
+    <!-- RAMILLETE DIGITAL -->
     <div class="section">
       <h3>A Digital Bouquet for You 🌻</h3>
       <p class="subtitle">Touch each flower to reveal its message</p>
@@ -63,6 +67,7 @@
       <p id="flower-message" class="revealed-text"></p>
     </div>
 
+    <!-- CARTA PERSONALIZADA -->
     <div class="section letter">
       <h3>A Letter For You ✉️</h3>
       <p class="letter-body">
@@ -72,38 +77,39 @@
       </p>
     </div>
 
+    <!-- REPRODUCTOR DE MÚSICA -->
     <div class="section playlist-section">
       <h3>Special Playlist 🎵</h3>
       <p class="playlist-sub">Songs that remind me of you</p>
 
-      <audio id="audio-player" preload="auto" controls style="width: 100%; margin-bottom: 15px; display: block;"></audio>
+      <audio id="audio-player"></audio>
 
       <div class="playlist">
-        <div class="song-card" id="song-0" onclick="playSong(0)">
+        <div class="song-card" onclick="playSong(0, this)">
           <span class="music-icon">🎵</span>
           <div class="song-info">
             <p class="song-title">Opera House</p>
             <p class="song-artist">Cigarettes After Sex</p>
           </div>
-          <button class="play-btn" id="btn-0">▶️</button>
+          <button class="play-btn">▶️</button>
         </div>
 
-        <div class="song-card" id="song-1" onclick="playSong(1)">
+        <div class="song-card" onclick="playSong(1, this)">
           <span class="music-icon">🎵</span>
           <div class="song-info">
             <p class="song-title">Cherry Waves</p>
             <p class="song-artist">Deftones</p>
           </div>
-          <button class="play-btn" id="btn-1">▶️</button>
+          <button class="play-btn">▶️</button>
         </div>
 
-        <div class="song-card" id="song-2" onclick="playSong(2)">
+        <div class="song-card" onclick="playSong(2, this)">
           <span class="music-icon">🎵</span>
           <div class="song-info">
             <p class="song-title">Ultraviolence</p>
             <p class="song-artist">Lana Del Rey</p>
           </div>
-          <button class="play-btn" id="btn-2">▶️</button>
+          <button class="play-btn">▶️</button>
         </div>
       </div>
     </div>
