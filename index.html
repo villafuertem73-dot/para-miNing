@@ -76,34 +76,40 @@
     </div>
 
     <!-- REPRODUCTOR DE MÚSICA -->
-    <div class="section">
-      <h3>Songs That Remind Me of You 🎵</h3>
-      <p class="subtitle">Press play to listen</p>
-      <div class="music-list">
-        <div class="song-card" id="song-0" onclick="playSong(0)">
-          <div class="song-info">
-            <strong>Opera House</strong>
-            <span>Cigarettes After Sex</span>
-          </div>
-          <button class="play-btn" id="btn-0">▶️</button>
-        </div>
-        <div class="song-card" id="song-1" onclick="playSong(1)">
-          <div class="song-info">
-            <strong>Cherry Waves</strong>
-            <span>Deftones</span>
-          </div>
-          <button class="play-btn" id="btn-1">▶️</button>
-        </div>
-        <div class="song-card" id="song-2" onclick="playSong(2)">
-          <div class="song-info">
-            <strong>Ultraviolence</strong>
-            <span>Lana Del Rey</span>
-          </div>
-          <button class="play-btn" id="btn-2">▶️</button>
-        </div>
+<div class="section">
+  <h3>Songs That Remind Me of You 🎵</h3>
+  <p class="subtitle">Press play to listen</p>
+  <div class="music-list">
+    
+    <div class="song-card" id="song-0" onclick="playSong(0)">
+      <div class="song-info">
+        <strong>Opera House</strong>
+        <span>Cigarettes After Sex</span>
       </div>
-      <audio id="audio-player"></audio>
+      <div class="play-btn" id="btn-0">▶️</div>
     </div>
+
+    <div class="song-card" id="song-1" onclick="playSong(1)">
+      <div class="song-info">
+        <strong>Cherry Waves</strong>
+        <span>Deftones</span>
+      </div>
+      <div class="play-btn" id="btn-1">▶️</div>
+    </div>
+
+    <div class="song-card" id="song-2" onclick="playSong(2)">
+      <div class="song-info">
+        <strong>Ultraviolence</strong>
+        <span>Lana Del Rey</span>
+      </div>
+      <div class="play-btn" id="btn-2">▶️</div>
+    </div>
+
+  </div>
+  
+  <!-- Etiqueta de audio corregida -->
+  <audio id="audio-player" preload="auto"></audio>
+</div>
 
     <!-- GALERÍA DE FOTOS -->
     <div class="section">
