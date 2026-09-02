@@ -8,6 +8,7 @@
 </head>
 <body>
 
+  <!-- PANTALLA 1: CÓDIGO DE SEGURIDAD -->
   <div id="pin-screen" class="screen">
     <div class="card">
       <div class="flower-icon">🌻</div>
@@ -37,11 +38,13 @@
     </div>
   </div>
 
+  <!-- PANTALLA 2: CAJA DE REGALO -->
   <div id="gift-screen" class="screen hidden">
     <h2>Tap the gift box to open it 🎁</h2>
     <div class="gift-box" onclick="openGift()">🎁</div>
   </div>
 
+  <!-- PANTALLA 3: PÁGINA PRINCIPAL -->
   <div id="main-screen" class="screen hidden">
     <div class="header">
       <p class="small-tag">✨ Your Special Day ✨</p>
@@ -49,6 +52,7 @@
       <p class="message">"Wishing you happiness, good health, and all your dreams come true." 💛</p>
     </div>
 
+    <!-- RAMILLETE DIGITAL -->
     <div class="section">
       <h3>A Digital Bouquet for You 🌻</h3>
       <p class="subtitle">Touch each flower to reveal its message</p>
@@ -61,6 +65,7 @@
       <p id="flower-message" class="revealed-text"></p>
     </div>
 
+    <!-- CARTA PERSONALIZADA -->
     <div class="section letter">
       <h3>A Letter For You ✉️</h3>
       <p class="letter-body">
@@ -70,6 +75,37 @@
       </p>
     </div>
 
+    <!-- REPRODUCTOR DE MÚSICA -->
+    <div class="section">
+      <h3>Songs That Remind Me of You 🎵</h3>
+      <p class="subtitle">Press play to listen</p>
+      <div class="music-list">
+        <div class="song-card" id="song-0" onclick="playSong(0)">
+          <div class="song-info">
+            <strong>Opera House</strong>
+            <span>Cigarettes After Sex</span>
+          </div>
+          <button class="play-btn" id="btn-0">▶️</button>
+        </div>
+        <div class="song-card" id="song-1" onclick="playSong(1)">
+          <div class="song-info">
+            <strong>Cherry Waves</strong>
+            <span>Deftones</span>
+          </div>
+          <button class="play-btn" id="btn-1">▶️</button>
+        </div>
+        <div class="song-card" id="song-2" onclick="playSong(2)">
+          <div class="song-info">
+            <strong>Ultraviolence</strong>
+            <span>Lana Del Rey</span>
+          </div>
+          <button class="play-btn" id="btn-2">▶️</button>
+        </div>
+      </div>
+      <audio id="audio-player"></audio>
+    </div>
+
+    <!-- GALERÍA DE FOTOS -->
     <div class="section">
       <h3>Our Photo Memories 📸</h3>
       <p class="subtitle">Tap to see it closer ✨</p>
@@ -79,6 +115,7 @@
       </div>
     </div>
 
+    <!-- LÍNEA DE TIEMPO / HISTORIA -->
     <div class="section">
       <h3>Memories We've Written Together 📖</h3>
       <div class="timeline">
@@ -100,6 +137,7 @@
       </div>
     </div>
 
+    <!-- FRASCO DE RAZONES -->
     <div class="section">
       <h3>Reasons I'm Grateful for You 🫙</h3>
       <p class="subtitle">Tap the jar to pick a note 📝</p>
@@ -107,6 +145,7 @@
       <p id="jar-note" class="revealed-text" style="margin-top: 15px; font-weight: bold;"></p>
     </div>
 
+    <!-- MENSAJE FINAL -->
     <div class="final-message">
       <h2>May your life always be filled with flowers 🌸</h2>
       <p>Wishing you endless happiness and love today and forever.</p>
