@@ -39,6 +39,16 @@ function submitCode() {
 function openGift() {
   document.getElementById('gift-screen').classList.add('hidden');
   document.getElementById('main-screen').classList.remove('hidden');
+  
+  // Activa el audio del navegador para móviles al tocar la caja de regalo
+  var player = document.getElementById('audio-player');
+  if (player) {
+    player.play().then(function() {
+      player.pause();
+    }).catch(function(e) {
+      console.log("Audio listo para reproducciones");
+    });
+  }
 }
 
 // FUNCION MOSTRAR MENSAJE DE FLORES
@@ -72,12 +82,13 @@ function playSong(index) {
   var allCards = document.querySelectorAll('.song-card');
   var allBtns = document.querySelectorAll('.play-btn');
 
-  // Si hace clic en la misma canción
+  // Si se toca la canción que ya está sonando
   if (currentSongIndex === index) {
     if (player.paused) {
-      player.play();
-      document.getElementById('song-' + index).classList.add('active');
-      document.getElementById('btn-' + index).innerText = "❚❚";
+      player.play().then(function() {
+        document.getElementById('song-' + index).classList.add('active');
+        document.getElementById('btn-' + index).innerText = "❚❚";
+      });
     } else {
       player.pause();
       document.getElementById('song-' + index).classList.remove('active');
@@ -86,7 +97,7 @@ function playSong(index) {
     return;
   }
 
-  // Limpiar estados anteriores
+  // Limpiar estilos anteriores
   for (var k = 0; k < allCards.length; k++) {
     allCards[k].classList.remove('active');
   }
@@ -94,14 +105,19 @@ function playSong(index) {
     allBtns[m].innerText = "▶️";
   }
 
-  // Cargar nueva canción
+  // Cargar y reproducir la nueva canción
   currentSongIndex = index;
   player.src = songs[index].url;
-  player.load();
-  player.play();
-
-  document.getElementById('song-' + index).classList.add('active');
-  document.getElementById('btn-' + index).innerText = "❚❚";
+  
+  var promise = player.play();
+  if (promise !== undefined) {
+    promise.then(function() {
+      document.getElementById('song-' + index).classList.add('active');
+      document.getElementById('btn-' + index).innerText = "❚❚";
+    }).catch(function(error) {
+      alert("No se pudo reproducir la canción. Revisa que el archivo " + songs[index].url + " esté subido a GitHub en la misma carpeta.");
+    });
+  }
 }
 
 // RAZONES DEL FRASCO INTERACTIVO
