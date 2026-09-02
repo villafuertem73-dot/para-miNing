@@ -147,6 +147,61 @@ button:active {
   text-align: left;
 }
 
+/* REPRODUCTOR DE MÚSICA */
+.music-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.song-card {
+  background: #2a2a2a;
+  padding: 12px 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: 0.2s;
+}
+
+.song-card.active {
+  border-color: #ffeb3b;
+  background: #333322;
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.song-info strong {
+  font-size: 14px;
+  color: #fff;
+}
+
+.song-info span {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.play-btn {
+  background: #ffeb3b;
+  color: #000;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* POLAROID */
 .polaroid-card {
   background: #fff;
