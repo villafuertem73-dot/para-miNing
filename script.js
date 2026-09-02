@@ -1,10 +1,10 @@
-let currentCode = "";
-const SECRET_CODE = "111111";
+var currentCode = "";
+var SECRET_CODE = "111111";
 
 // FUNCIONES DEL CÓDIGO PIN
 function pressKey(num) {
   if (currentCode.length < 6) {
-    currentCode += num;
+    currentCode = currentCode + num;
     updateDots();
   }
 }
@@ -15,14 +15,14 @@ function clearKey() {
 }
 
 function updateDots() {
-  const dots = document.querySelectorAll('.dot');
-  dots.forEach((dot, index) => {
-    if (index < currentCode.length) {
-      dot.classList.add('active');
+  var dots = document.querySelectorAll('.dot');
+  for (var i = 0; i < dots.length; i++) {
+    if (i < currentCode.length) {
+      dots[i].classList.add('active');
     } else {
-      dot.classList.remove('active');
+      dots[i].classList.remove('active');
     }
-  });
+  }
 }
 
 function submitCode() {
@@ -47,7 +47,7 @@ function showMessage(msg) {
 }
 
 // REPRODUCTOR DE MÚSICA
-const songs = [
+var songs = [
   {
     title: "Opera House",
     artist: "Cigarettes After Sex",
@@ -65,26 +65,41 @@ const songs = [
   }
 ];
 
-let currentSongIndex = -1;
+var currentSongIndex = -1;
 
-function playSong(index, element) {
-  const player = document.getElementById('audio-player');
-  const allCards = document.querySelectorAll('.song-card');
+function playSong(index) {
+  var player = document.getElementById('audio-player');
+  var allCards = document.querySelectorAll('.song-card');
+  var allBtns = document.querySelectorAll('.play-btn');
 
-  allCards.forEach(card => card.classList.remove('active'));
-
+  // Si hace clic en la misma canción
   if (currentSongIndex === index) {
     if (player.paused) {
       player.play();
-      element.classList.add('active');
+      document.getElementById('song-' + index).classList.add('active');
+      document.getElementById('btn-' + index).innerText = "❚❚";
     } else {
       player.pause();
+      document.getElementById('song-' + index).classList.remove('active');
+      document.getElementById('btn-' + index).innerText = "▶️";
     }
     return;
   }
 
+  // Limpiar estados anteriores
+  for (var k = 0; k < allCards.length; k++) {
+    allCards[k].classList.remove('active');
+  }
+  for (var m = 0; m < allBtns.length; m++) {
+    allBtns[m].innerText = "▶️";
+  }
+
+  // Cargar nueva canción
   currentSongIndex = index;
   player.src = songs[index].url;
+  player.load();
   player.play();
-  element.classList.add('active');
+
+  document.getElementById('song-' + index).classList.add('active');
+  document.getElementById('btn-' + index).innerText = "❚❚";
 }
