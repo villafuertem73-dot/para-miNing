@@ -1,133 +1,160 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #121212;
-  color: #fff;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0b0b0b;
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  text-align: center;
+  padding: 15px;
 }
 
 .screen {
   width: 100%;
-  max-width: 400px;
-  padding: 20px;
-  box-sizing: border-box;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
-.card {
-  background: #1e1e1e;
-  padding: 25px;
-  border-radius: 20px;
-  border: 1px solid #ffe60033;
-  box-shadow: 0 8px 24px rgba(255, 230, 0, 0.1);
+/* TARJETAS ESTILO TIKTOK CON BORDE DILUYENTE Y SOMBRA */
+.card, .section {
+  background: #181818;
+  border-radius: 16px;
+  padding: 22px 18px;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 215, 0, 0.05);
+  text-align: center;
 }
 
-.flower-icon {
-  font-size: 40px;
-}
-
+/* ENCABEZADOS Y TEXTOS */
 h1 {
   color: #ffeb3b;
-  font-size: 26px;
-  letter-spacing: 2px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin: 5px 0 10px 0;
 }
 
 h2 {
-  color: #fff;
-  font-size: 22px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+h3 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
 .subtitle {
-  color: #aaa;
-  font-size: 14px;
+  color: #888888;
+  font-size: 11px;
+  margin-bottom: 15px;
 }
 
 .small-tag {
   color: #ffeb3b;
-  font-size: 12px;
-  letter-spacing: 1px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 600;
 }
 
 .message {
-  color: #ddd;
+  color: #cccccc;
+  font-size: 12px;
   font-style: italic;
+  line-height: 1.5;
+}
+
+/* PANTALLA PIN Y TECLADO */
+.flower-icon {
+  font-size: 35px;
+  margin-bottom: 5px;
 }
 
 .code-dots {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   margin: 20px 0;
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
-  background: #333;
+  width: 10px;
+  height: 10px;
+  background: #333333;
   border-radius: 50%;
+  transition: all 0.2s ease;
 }
 
 .dot.active {
   background: #ffeb3b;
+  box-shadow: 0 0 8px #ffeb3b;
 }
 
 .keypad {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 10px;
+  max-width: 260px;
+  margin: 0 auto;
 }
 
 button {
-  background: #2a2a2a;
-  border: none;
-  color: #fff;
-  font-size: 20px;
-  padding: 15px;
-  border-radius: 12px;
+  background: #222222;
+  border: 1px solid #333333;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 12px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: background 0.2s, transform 0.1s;
 }
 
 button:active {
   background: #ffeb3b;
-  color: #000;
+  color: #000000;
+  transform: scale(0.95);
 }
 
 .hint {
   color: #ffeb3b;
-  font-size: 12px;
+  font-size: 11px;
   margin-top: 15px;
+  opacity: 0.8;
 }
 
+/* CAJA DE REGALO ANIMADA */
 .gift-box {
-  font-size: 100px;
+  font-size: 80px;
   cursor: pointer;
-  animation: bounce 1.5s infinite;
-  margin-top: 20px;
+  animation: bounce 1.8s infinite ease-in-out;
+  margin: 30px 0;
 }
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-12px); }
 }
 
-.section {
-  background: #1e1e1e;
-  padding: 20px;
-  border-radius: 15px;
-  margin-top: 20px;
-  border: 1px solid #ffeb3b44;
-}
-
+/* FLORAL / RAMILLETE */
 .bouquet {
-  font-size: 35px;
+  font-size: 30px;
   display: flex;
   justify-content: space-around;
   margin: 15px 0;
@@ -136,40 +163,40 @@ button:active {
 
 .revealed-text {
   color: #ffeb3b;
-  font-size: 14px;
-  min-height: 20px;
+  font-size: 12px;
+  min-height: 18px;
+  font-weight: 500;
 }
 
 .letter-body {
-  color: #ddd;
-  font-size: 14px;
+  color: #dddddd;
+  font-size: 13px;
   line-height: 1.6;
   text-align: left;
 }
 
-/* REPRODUCTOR DE MÚSICA */
+/* REPRODUCTOR DE MÚSICA ESTILO TARJETA */
 .music-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 15px;
 }
 
 .song-card {
-  background: #2a2a2a;
-  padding: 12px 15px;
+  background: #222222;
+  padding: 10px 14px;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  border: 1px solid transparent;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   transition: 0.2s;
 }
 
 .song-card.active {
   border-color: #ffeb3b;
-  background: #333322;
+  background: #29281a;
 }
 
 .song-info {
@@ -179,24 +206,24 @@ button:active {
 }
 
 .song-info strong {
-  font-size: 14px;
-  color: #fff;
+  font-size: 13px;
+  color: #ffffff;
 }
 
 .song-info span {
-  font-size: 12px;
-  color: #aaa;
+  font-size: 11px;
+  color: #888888;
 }
 
 .play-btn {
   background: #ffeb3b;
-  color: #000;
+  color: #000000;
   border: none;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   padding: 0;
-  font-size: 14px;
+  font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,84 +231,90 @@ button:active {
 
 /* POLAROID */
 .polaroid-card {
-  background: #fff;
-  padding: 12px 12px 20px 12px;
-  border-radius: 8px;
-  margin: 15px auto;
-  max-width: 250px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  transform: rotate(-2deg);
+  background: #ffffff;
+  padding: 10px 10px 18px 10px;
+  border-radius: 6px;
+  margin: 15px auto 5px auto;
+  max-width: 220px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  transform: rotate(-1.5deg);
 }
 
 .polaroid-img {
   width: 100%;
-  border-radius: 4px;
+  height: auto;
+  border-radius: 3px;
   display: block;
 }
 
 .polaroid-caption {
-  color: #111;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  margin: 10px 0 0 0;
-  font-size: 14px;
+  color: #111111;
+  font-family: 'Comic Sans MS', 'Caveat', cursive, sans-serif;
+  margin: 8px 0 0 0;
+  font-size: 13px;
+  font-weight: bold;
 }
 
-/* TIMELINE */
+/* LÍNEA DE TIEMPO (TIMELINE) */
 .timeline {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
   text-align: left;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .timeline-item {
-  background: #2a2a2a;
-  padding: 12px 15px;
+  background: #222222;
+  padding: 12px 14px;
   border-radius: 10px;
   border-left: 3px solid #ffeb3b;
 }
 
 .timeline-tag {
-  font-size: 10px;
+  font-size: 9px;
   color: #ffeb3b;
   letter-spacing: 1px;
+  font-weight: 600;
 }
 
 .timeline-item h4 {
-  margin: 5px 0 2px 0;
-  font-size: 14px;
+  margin: 3px 0 2px 0;
+  font-size: 13px;
+  color: #ffffff;
 }
 
 .timeline-item p {
   margin: 0;
-  font-size: 12px;
-  color: #aaa;
+  font-size: 11px;
+  color: #aaaaaa;
 }
 
-/* JAR */
+/* FRASCO INTERACTIVO */
 .jar {
-  font-size: 60px;
+  font-size: 55px;
   cursor: pointer;
   margin: 10px 0;
   transition: transform 0.2s;
 }
 
 .jar:active {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1) rotate(6deg);
 }
 
 .final-message {
-  margin: 40px 0 20px 0;
-  padding: 20px;
+  margin: 20px 0 10px 0;
+  padding: 15px;
+  text-align: center;
 }
 
 .final-message h2 {
   color: #ffeb3b;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .final-message p {
-  color: #aaa;
-  font-size: 13px;
+  color: #888888;
+  font-size: 12px;
+  margin-top: 5px;
 }
