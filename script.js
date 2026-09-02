@@ -1,52 +1,4 @@
-let currentCode = "";
-const SECRET_CODE = "111111";
-
-// FUNCIONES DEL CÓDIGO PIN
-function pressKey(num) {
-  if (currentCode.length < 6) {
-    currentCode += num;
-    updateDots();
-  }
-}
-
-function clearKey() {
-  currentCode = "";
-  updateDots();
-}
-
-function updateDots() {
-  const dots = document.querySelectorAll('.dot');
-  dots.forEach((dot, index) => {
-    if (index < currentCode.length) {
-      dot.classList.add('active');
-    } else {
-      dot.classList.remove('active');
-    }
-  });
-}
-
-function submitCode() {
-  if (currentCode === SECRET_CODE) {
-    document.getElementById('pin-screen').classList.add('hidden');
-    document.getElementById('gift-screen').classList.remove('hidden');
-  } else {
-    alert("Código incorrecto, intenta de nuevo 💛");
-    clearKey();
-  }
-}
-
-// FUNCION ABRIR REGALO
-function openGift() {
-  document.getElementById('gift-screen').classList.add('hidden');
-  document.getElementById('main-screen').classList.remove('hidden');
-}
-
-// FUNCION MOSTRAR MENSAJE DE FLORES
-function showMessage(msg) {
-  document.getElementById('flower-message').innerText = msg;
-}
-
-// REPRODUCTOR DE MÚSICA
+// REPRODUCTOR DE MÚSICA CORREGIDO
 const songs = [
   {
     title: "Opera House",
@@ -71,20 +23,29 @@ function playSong(index, element) {
   const player = document.getElementById('audio-player');
   const allCards = document.querySelectorAll('.song-card');
 
-  allCards.forEach(card => card.classList.remove('active'));
-
+  // Si tocamos la misma canción que está sonando
   if (currentSongIndex === index) {
     if (player.paused) {
-      player.play();
+      player.play().catch(e => console.log("Error al reproducir:", e));
       element.classList.add('active');
     } else {
       player.pause();
+      element.classList.remove('active');
     }
     return;
   }
 
+  // Quita el estado activo de las demás tarjetas
+  allCards.forEach(card => card.classList.remove('active'));
+
+  // Carga y reproduce la nueva canción
   currentSongIndex = index;
   player.src = songs[index].url;
-  player.play();
-  element.classList.add('active');
+  player.load();
+  player.play().then(() => {
+    element.classList.add('active');
+  }).catch(error => {
+    console.log("No se pudo cargar el audio:", error);
+    alert("No se pudo reproducir la canción. Asegúrate de que el archivo " + songs[index].url + " esté subido en GitHub.");
+  });
 }
